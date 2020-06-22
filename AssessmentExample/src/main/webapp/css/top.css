@@ -1,0 +1,24 @@
+.result{
+	/* margin:0 auto ; */
+	width: 50%;
+	height: auto;
+}
+.info{
+	float: left; 
+}
+ul li{
+	list-style:none
+}
+.image-info{
+	width: 90px;
+	height: 106px;
+	float: left;
+}
+.person-info{
+	font-size: 14px;
+	margin-left: 30px;
+	text-align: left;
+	float: left;
+	color: white;
+	line-height: 20px;
+}

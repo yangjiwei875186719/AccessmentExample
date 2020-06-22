@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.RecordMapper">
+    <resultMap id="BaseResultMap" type="com.example.entity.Record">
+        <result column="no" property="no" jdbcType="VARCHAR"/>
+        <result column="salesman_id" property="salesmanId" jdbcType="VARCHAR"/>
+        <result column="loan" property="loan" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+
+    <sql id="baseSql">
+    `no` ,
+    `salesman_id` ,
+    `loan`
+</sql>
+   <!-- /**
+    * 通过身份证号查数据
+    * @param no
+    * @return
+    */
+    Record selectRecordByNo(String no);-->
+    <select id="selectRecordByNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="baseSql"></include>
+        from record where no=#{no}
+    </select>
+
+ <!--   /**
+    * 保存数据
+    * @param record
+    * @return
+    */
+    Integer saveRecord(Record record);-->
+
+    <insert id="saveRecord" parameterType="com.example.entity.Record">
+        insert into record (`no`,salesman_id,loan) value (#{record.no},#{record.salesmanId},#{record.loan})
+    </insert>
+
+</mapper>

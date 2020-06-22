@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<!--登陆界面-->
+<html>
+<head>
+	<meta charset="utf-8">
+		<title>Login</title>
+
+		<link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
+
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<style>
+	.sel{
+		width: 100%;
+		height: 47px;
+		background: #F0EEF0;
+		border: 0px;
+		padding-left: 20px;
+		font-size: 20px;
+		color: gray;
+	}
+
+	
+</style>
+	</head>
+	<body>
+
+		<div class="message warning">
+			<div class="inset">
+				<div class="login-head">
+					<h1>登录</h1>
+				</div>
+
+				<form  οnsubmit="return false">
+					<ul>
+						<li>
+							<select class="sel" id="role">
+								<option value="0">管理员</option>
+								<option value="1">业务员</option>
+							</select>
+						</li>
+						<li><input type="text" class="text" id="user" value="" placeholder="账号"><a href="#" class=" icon user"></a></li>
+						<li><input type="password" value="" id="password" placeholder="密码" /> <a href="#" class="icon lock"></a></li>
+					</ul>
+
+					<div class="submit">
+						<input type="submit" id="btnLogin"  value="登录">
+
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/loading.js"></script>
+<script src="js/login.js"></script>
+	</body>
+</html>

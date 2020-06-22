@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <link href="../css/add-information.css" rel="stylesheet"/>
+		 
+	</head>
+	<body>
+		<div class="content" id="app">
+			<div class="content-input">
+				<input id="no" class="cardNum-input" type="search" placeholder="请输入身份证号"  />
+				<input id="button" type="button" class="button" v-on:click="submit"  value="搜索"/>
+			</div>
+			<div class="result" >
+				
+				<ul>
+					<li   v-for="info in userInfo">
+						<div class="info" style="margin-top: 15px;">
+							<img :src="info.userPhotos" class="image-info"  alt="person" />
+							<div class="person-info">
+								<p>身份证号：{{info.no}}</p>
+								<p>姓名：{{info.name}}</p>
+								<p>性别：{{info.sex}}</p>
+								<p>年龄：{{info.age}}</p>
+								<p>公积金比例: {{info.providentFunRatio}}</p>
+								<p>月收入: {{info.monthlyIncome}}</p>
+								<p>月支出: {{info.monthlySpending}}</p>
+								<p>违约记录: {{info.defaultRecord}}</p>
+							</div>
+						</div>
+						<button style="position: absolute; bottom: 80px;left: 700px; width: 50px;height: 30px;" v-on:click="toUpdate">修改</button>
+					</li>
+					
+				</ul>
+				
+			</div>
+			<div class="bottom">
+				<form id="upForm" method="post" enctype="multipart/form-data">
+					<input id="file" name="file" accept=".txt" type="file" value="添加数据"/>
+					<input class="bottom-btn" id="btnUpload"  style="margin-left: 50px;" type="button" value="提交数据" />
+
+				</form>
+
+				
+			</div>
+		</div>
+		
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script src="../js/vue-resource.min.js"></script>
+		<script src="../js/loading.js"></script>
+		<script src="../js/add-information.js"></script>
+		<script src="../js/islogin.js"></script>
+	</body>
+</html>

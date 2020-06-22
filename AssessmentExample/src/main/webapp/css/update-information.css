@@ -1,0 +1,28 @@
+*{
+	
+	margin: 0;
+	padding: 0;
+}
+body{
+	 
+	 background-color:#DEDEDE ;
+}
+table{
+	margin-top: 50px;
+	height: 400px;
+}
+table tr td{
+	font-size: 16px;
+}
+form{
+	width: 100%;
+}
+.update-btn{
+	width: 70px;
+	height: 30px;
+}
+.input-text{
+	width: 30%;
+	height: 30px;
+	padding-left: 7px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.UserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.example.entity.UserInfo">
+        <result column="no" property="no" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="providentFunRatio" property="providentFunRatio" jdbcType="FLOAT"/>
+        <result column="monthlyIncome" property="monthlyIncome" jdbcType="FLOAT"/>
+        <result column="monthlySpending" property="monthlySpending" jdbcType="FLOAT"/>
+        <result column="defaultRecord" property="defaultRecord" jdbcType="VARCHAR"/>
+        <result column="userPhotos" property="userPhotos" jdbcType="CLOB"/>
+    </resultMap>
+
+
+
+<sql id="baseSql">
+    `no` ,
+    `name` ,
+    `sex` ,
+    `age` ,
+    `providentFunRatio` ,
+    `monthlyIncome` ,
+    `monthlySpending` ,
+    `defaultRecord` ,
+    `userPhotos`
+</sql>
+
+    <!--/**
+        * 通过身份证查询userinfo表中的数据
+        * @param no
+        * @return
+        */
+        UserInfo selectByNo(String no);-->
+    <select id="selectByNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="baseSql"></include>
+        from userinfo where no=#{no}
+    </select>
+<!--    /**
+    * 修改信息
+    * @param userInfo
+    * @return
+    */
+    Integer updateUserInfo(UserInfo userInfo);-->
+    <update id="updateUserInfo" parameterType="com.example.entity.UserInfo">
+        update userinfo set providentFunRatio=#{userInfo.providentFunRatio} ,monthlyIncome=#{userInfo.monthlyIncome},monthlySpending=#{userInfo.monthlySpending},defaultRecord=#{userInfo.defaultRecord} where `no`=#{userInfo.no}
+    </update>
+
+
+   <!-- /**
+    * 保存
+    * @param userInfo
+    * @return
+    */
+    Integer saveUserInfo(UserInfo userInfo);-->
+    <insert id="saveUserInfo" parameterType="com.example.entity.UserInfo">
+        insert into userinfo ( `no` , `name` ,  `sex` ,  `age` ,  `providentFunRatio` ,  `monthlyIncome` , `monthlySpending` ,  `defaultRecord` ,   `userPhotos`) values (#{userInfo.no},#{userInfo.name},#{userInfo.sex},#{userInfo.age},#{userInfo.providentFunRatio},#{userInfo.monthlyIncome},#{userInfo.monthlySpending},#{userInfo.defaultRecord},#{userInfo.userPhotos})
+    </insert>
+</mapper>

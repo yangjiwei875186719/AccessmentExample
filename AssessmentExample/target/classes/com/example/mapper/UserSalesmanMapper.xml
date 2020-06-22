@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.UserSalesmanMapper">
+    <resultMap id="BaseResultMap" type="com.example.entity.UserSalesman">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="photo" property="photo" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+
+    <sql id="baseSql">
+    `id` ,
+    `password` ,
+    `name` ,
+    `photo`
+</sql>
+   <!-- /**
+    * 通过id  password 查询数据
+    * @param id
+    * @param password
+    * @return
+    */
+    UserSalesman selectUserSalemanByIdPwd(String id,String password);-->
+    <select id="selectUserSalemanByIdPwd" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="baseSql"></include>
+        from user_salesman where id=#{id} and password=#{password}
+    </select>
+
+<!--    /**
+    * 保存数据
+    * @param userSalesman
+    * @return
+    */
+    Integer saveUserSalesman(UserSalesman userSalesman);-->
+    <insert id="saveUserSalesman" parameterType="com.example.entity.UserSalesman">
+        insert into user_salesman (`id`,`password`,`name`,`photo`) value (#{userSalesman.id},#{userSalesman.password},#{userSalesman.name},#{userSalesman.photo})
+    </insert>
+
+  <!--  /**
+    * 通过id查询
+    * @param salesmanId
+    * @return
+    */
+    UserSalesman selectUserSalemanById(String salesmanId);-->
+    <select id="selectUserSalemanById" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="baseSql"></include>
+        from user_salesman where id=#{id}
+    </select>
+</mapper>

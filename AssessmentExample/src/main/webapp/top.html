@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+			<link href="css/top.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+	<body style="background-color: cadetblue;">
+		<div style="">
+			<h2 id="role" style="color: #FFFFFF;margin-left: 40px;">系统管理员</h2>
+			<a id="logout" style="color: #FFFFFF;position: absolute; right: 30px;top: 30px;" href="/index.html"  target="_parent">退出</a>
+		</div>
+		
+		<hr>
+		<div class="result" id="app">
+			<ul>
+				<li   v-for="info in user">
+					<div class="info" style="margin-top: 15px;">
+						<img :src="info.photo" class="image-info"  alt="person" />
+						<div class="person-info">
+							<p>账号：{{info.id}}</p>
+							<p>姓名：{{info.name}}</p>
+							<p>权限：{{info.role}}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="js/vue-resource.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/islogin.js"></script>
+		<script>
+			$(function() {
+				var loginUser = JSON.parse(localStorage.getItem("loginUser"));
+				console.log(loginUser);
+				$("#role").html(loginUser.role);
+				if (loginUser.role != "系统管理员") {
+					window.parent.document.getElementsByTagName("frameset")[1].cols = "0,*";
+					window.parent.document.getElementsByTagName("frameset")[1].lastElementChild.src="/page/content-search.html";
+				}
+
+				$("#logout").click(function () {
+					if(confirm("确认退出？")){
+						localStorage.clear();
+					}
+				})
+		
+			})
+		</script>
+	</body>
+</html>

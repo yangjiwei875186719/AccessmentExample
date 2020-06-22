@@ -1,0 +1,22 @@
+*{
+	
+	margin: 0;
+	padding: 0;
+}
+body{
+	 
+	 background-color:#DEDEDE ;
+}
+.content{
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+}
+input {
+	width: 300px;
+	height: 30px;
+}
+.btn{
+	width: 50px;
+	height: 30px;
+}

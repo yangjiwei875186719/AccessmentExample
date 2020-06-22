@@ -1,0 +1,70 @@
+*{
+	
+	margin: 0;
+	padding: 0;
+}
+body{
+	 
+	 background-color:#DEDEDE ;
+}
+.content{
+	margin-top: 10px;
+	text-align: center;
+	/* width: 1500px; */
+}
+.content-input{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.cardNum-input{
+	border: 1px solid black;
+	outline: none; 
+	width: 50%;
+	height: 50px;
+	font-size: 20px;
+	padding-left: 7px;
+}
+.button{
+	margin-left: 15px;
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+}
+.result{
+	margin:0 auto ;
+	width: 50%;
+	height: auto;
+}
+.info{
+	float: left; 
+}
+ul li{
+	list-style:none
+}
+.image-info{
+	width: 180px;
+	height: 206px;
+	float: left;
+}
+.person-info{
+	margin-left: 200px;
+	text-align: left;
+	float: left;
+	color: gray;
+	line-height: 40px;
+}
+.bottom{
+	padding-top: 10px;
+	width: 100%;
+	border-top: 1px solid gray;
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+}
+.bottom-btn {
+	width: 130px;
+	height: 30px;
+	color: #808080;
+	font-size: 14px;
+	
+}

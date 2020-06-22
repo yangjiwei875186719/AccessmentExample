@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<!-- 做一个上下的结构 -->
+	<frameset rows="220px,*" border="1" noresize="noresize">
+		<frame src="top.html" scrolling="no" />
+		<!-- 将下面的frame在分左右 -->
+		<frameset cols="10%,*">
+			<frame id="left" src="left.html" />
+			<frame name="right" src="/page/add-information.html" />
+		</frameset>
+	</frameset>
+	<noframes>
+		<body>
+
+			<p>此网页使用了框架，但您的浏览器不支持框架。</p>
+
+		</body>
+	</noframes>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/vue-resource.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/islogin.js"></script>
+
+
+</html>
